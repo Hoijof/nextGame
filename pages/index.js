@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import clientPromise from '../lib/mongodb'
 
-export default function Home({ isConnected }) {
+export default function Home({ isConnected, test }) {
 
   return (
     <div className="container">
@@ -14,7 +14,8 @@ export default function Home({ isConnected }) {
 
       <main>
         <div>
-          isDB connected? {isConnected} hola
+          isDB connected? {isConnected ? 'true' : 'false'} hola adsfas {test}
+          <div>{test}</div>
         </div>
       </main>
 
@@ -33,7 +34,7 @@ export async function getServerSideProps(context) {
     await clientPromise
 
     return {
-      props: { isConnected: true },
+      props: { isConnected: true, test: 2 },
     }
   } catch (e) {
     console.error(e)
