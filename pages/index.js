@@ -34,12 +34,6 @@ export async function getServerSideProps(context) {
     // db.find({}) or any of the MongoDB Node Driver commands
     await clientPromise
 
-
-    api.recordCustomEvent('nextEvent', {
-      env: process.env.NODE_ENV,
-      type: 'render',
-      data: 'Home'
-    });
     return {
       props: { isConnected: true },
     }
