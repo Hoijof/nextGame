@@ -1,4 +1,4 @@
-import { Link, Grid, Card, CardContent, Typography } from '@system';
+import { Link, Grid, Card, CardContent, Typography, Image } from '@system';
 import { getAllCards } from '@/services/cardService';
 
 
@@ -21,7 +21,7 @@ export default function ListCard({ cards = [] }) {
             <CardContent>
               <Typography>{card.name}</Typography>
               <Typography>{card.description}</Typography>
-              <img src={card.image} alt="ups" />
+              <Image src={card.image} alt="ups" width={200} height={200} />
             </CardContent>
           </Card>
         ))}

@@ -9,4 +9,7 @@ const ContentSecurityPolicy = `
 `;
 
 module.exports = {
+  images: {
+    domains: ['static.wikia.nocookie.net', 'images.wikia.nocookie.net', 'apkresult.com']
+  },
 }

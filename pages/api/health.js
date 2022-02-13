@@ -1,4 +1,4 @@
-export default function handler(req, res) {
+export default async function handler(req, res) {
   const client = await clientPromise
 
   await client.db().collection('cards').insertOne({
