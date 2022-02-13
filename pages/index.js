@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Link from 'next/link'
+import { Link } from '@system';
 
-import clientPromise from '../lib/mongodb'
+import clientPromise from '@/lib/mongodb'
 
 export default function Home({ isConnected, test }) {
 
@@ -14,8 +14,9 @@ export default function Home({ isConnected, test }) {
 
       <main>
         <div>
-          isDB connected? {isConnected ? 'true' : 'false'} hola adsfas {test}
-          <div>{test}</div>
+          <Link href="/cards/create" variant="body2">
+            Create Card
+          </Link>
         </div>
       </main>
 
