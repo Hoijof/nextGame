@@ -1,9 +1,10 @@
-
 import { useRouter } from 'next/router';
 
 import { useCallback, useState, useMemo } from 'react';
 
-import { Input, Grid, Button, Typography } from '@system';
+import {
+  Input, Grid, Button, Typography,
+} from '@system';
 
 import { register } from '@/services/client/userService';
 
@@ -19,7 +20,7 @@ export default function Login() {
     try {
       await register(username, password);
 
-      router.replace(`/login`);
+      router.replace('/login');
     } catch (e) {
       setError(e.message);
     }
@@ -38,26 +39,26 @@ export default function Login() {
       )}
       <Grid item xs={12}>
         <Input
-          label='Username'
+          label="Username"
           value={username}
-          placeholder='Username'
+          placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
         />
       </Grid>
       <Grid item xs={12}>
         <Input
-          label='Password'
+          label="Password"
           value={password}
-          placeholder='Password'
+          placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
           type="password"
         />
       </Grid>
       <Grid item xs={12}>
         <Input
-          label='Password2'
+          label="Password2"
           value={password2}
-          placeholder='Repeat Password'
+          placeholder="Repeat Password"
           onChange={(e) => setPassword2(e.target.value)}
           type="password"
         />
