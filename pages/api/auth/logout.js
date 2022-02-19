@@ -4,6 +4,8 @@ import { findUser, updateUser } from '@/services/userService';
 export default async function Logout(req, res) {
   if (!await isAuth(req)) {
     res.status(401).json({ status: 'Unauthorized' });
+
+    return null;
   }
 
   const user = await findUser({ token: getToken(req) });
