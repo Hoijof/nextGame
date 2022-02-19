@@ -3,7 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "@system": ["system"],
-      "@/*": ["*"]
+      "@/*": ["*"],
+      "@utils": ["utils"]
     }
   }
 }

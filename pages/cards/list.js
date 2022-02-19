@@ -1,6 +1,8 @@
-import { Link, Grid, Card, CardContent, Typography, Image } from '@system';
+import { Link, Grid, Typography } from '@system';
+
 import { getAllCards } from '@/services/cardService';
 
+import { Card } from '@/components/Card';
 
 export default function ListCard({ cards = [] }) {
   if (cards.length === 0) {
@@ -13,19 +15,15 @@ export default function ListCard({ cards = [] }) {
       </Grid>
     );
   }
+
   return (
-    <Grid container sx={{ alignItems: 'center' }}>
-      <Grid item xs={12}>
-        {cards.map((card, key) => (
-          <Card key={key}>
-            <CardContent>
-              <Typography>{card.name}</Typography>
-              <Typography>{card.description}</Typography>
-              <Image src={card.image} alt="ups" width={200} height={200} />
-            </CardContent>
-          </Card>
-        ))}
-      </Grid>
+    <Grid container sx={{ alignItems: 'center' }} spacing={2}>
+
+      {cards.map((card, key) => (
+        <Grid item key={key}>
+          <Card name={card.name} description={card.description} image={card.image} />
+        </Grid>
+      ))}
     </Grid>
   )
 }
