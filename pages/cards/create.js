@@ -1,9 +1,11 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-import { createCard } from '@/services/api/cardService';
+import {
+  Link, Grid, Input, Button, Typography,
+} from '@system';
 
-import { Link, Grid, Input, Button, Typography } from '@system';
+import { createCard } from '@/services/client/cardService';
 
 export default function CreateCard() {
   const router = useRouter();
@@ -39,24 +41,29 @@ export default function CreateCard() {
 
   if (error) {
     return (
-      <Grid container sx={{ alignItems: 'center' }}>
+      <Grid container sx={{ alignItems: 'center' }} direction="column">
         <Grid item xs={12}>
           <Typography color="error">{error}</Typography>
-          <Link href='/'> Go HOME </Link>
+          <Link href="/"> Go HOME </Link>
         </Grid>
       </Grid>
     );
   }
 
   return (
-    <Grid container sx={{ alignItems: 'center' }}>
+    <Grid container sx={{ alignItems: 'center', pt: 3 }} direction="column" spacing={2}>
       <Grid item xs={12}>
         <Input value={name} onChange={handleNameChange} placeholder="Card Name" />
+      </Grid>
+      <Grid item xs={12}>
         <Input value={description} onChange={handleDescriptionChange} placeholder="Description" />
+      </Grid>
+      <Grid item xs={12}>
         <Input value={image} onChange={handleImageChange} placeholder="Main image" />
-
+      </Grid>
+      <Grid item xs={12}>
         <Button disabled={isSubmitting} onClick={onSubmit}>Create Card</Button>
       </Grid>
     </Grid>
-  )
+  );
 }

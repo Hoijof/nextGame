@@ -1,19 +1,15 @@
-import clientPromise from "@/lib/mongodb";
+import clientPromise from '@/lib/mongodb';
 
 export async function createCard({ name, description, image }) {
   const client = await clientPromise;
 
-  try {
-    const id = await client.db().collection('cards').insertOne({
-      name,
-      description,
-      image,
-    });
+  const id = await client.db().collection('cards').insertOne({
+    name,
+    description,
+    image,
+  });
 
-    return id.insertedId;
-  } catch (e) {
-    throw e;
-  }
+  return id.insertedId;
 }
 
 export async function getAllCards() {
